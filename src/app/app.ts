@@ -6,6 +6,7 @@ import { ProblemComponent } from './components/problem/problem';
 import { FeaturesComponent } from './components/features/features';
 import { HowComponent } from './components/how/how';
 import { PricingComponent } from './components/pricing/pricing';
+import { CtaFooterComponent } from './components/cta-footer/cta-footer';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { PricingComponent } from './components/pricing/pricing';
     ProblemComponent,
     FeaturesComponent,
     HowComponent,
-    PricingComponent],
+    PricingComponent,
+    CtaFooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
