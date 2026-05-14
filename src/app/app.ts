@@ -4,6 +4,7 @@ import { HeroComponent } from './components/hero/hero';
 import { StatsComponent } from './components/stats/stats';
 import { ProblemComponent } from './components/problem/problem';
 import { FeaturesComponent } from './components/features/features';
+import { HowComponent } from './components/how/how';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,8 @@ import { FeaturesComponent } from './components/features/features';
     HeroComponent,
     StatsComponent,
     ProblemComponent,
-    FeaturesComponent
-  ],
+    FeaturesComponent,
+    HowComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
