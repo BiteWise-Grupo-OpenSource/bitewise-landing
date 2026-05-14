@@ -3,6 +3,7 @@ import { NavbarComponent } from './components/navbar/navbar';
 import { HeroComponent } from './components/hero/hero';
 import { StatsComponent } from './components/stats/stats';
 import { ProblemComponent } from './components/problem/problem';
+import { FeaturesComponent } from './components/features/features';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { ProblemComponent } from './components/problem/problem';
     NavbarComponent,
     HeroComponent,
     StatsComponent,
-    ProblemComponent
+    ProblemComponent,
+    FeaturesComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
