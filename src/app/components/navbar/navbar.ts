@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,7 +9,18 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./navbar.css']
 })
 export class NavbarComponent {
-  isDark = false;
+    isDark = false;
+  isScrolled = false;
+
+  @HostListener('window:scroll')
+  onScroll() {
+    this.isScrolled = window.scrollY > 20;
+  }
+
+  scrollTo(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
   toggleTheme() {
     this.isDark = !this.isDark;
     document.documentElement.setAttribute('data-theme', this.isDark ? 'dark' : 'light');

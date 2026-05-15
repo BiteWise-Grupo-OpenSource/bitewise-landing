@@ -1,9 +1,9 @@
-<nav class="s-nav">
+﻿<nav class="s-nav" [class.scrolled]="isScrolled">
   <div class="nav-logo">Bite<span>.</span>Wise</div>
   <ul class="nav-links">
-    <li><a href="#">Funciones</a></li>
+    <li><a style="cursor:pointer;" (click)="scrollTo('features')">Funciones</a></li>
     <li><a href="#">Cómo funciona</a></li>
-    <li><a href="#">Precios</a></li>
+    <li><a style="cursor:pointer;" (click)="scrollTo('pricing')">Precios</a></li>
   </ul>
   <div class="nav-actions">
     <a href="#" class="nav-login">Ingresar</a>
