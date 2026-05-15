@@ -7,11 +7,13 @@ import { FeaturesComponent } from './components/features/features';
 import { HowComponent } from './components/how/how';
 import { PricingComponent } from './components/pricing/pricing';
 import { CtaFooterComponent } from './components/cta-footer/cta-footer';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    RouterOutlet,
     NavbarComponent,
     HeroComponent,
     StatsComponent,

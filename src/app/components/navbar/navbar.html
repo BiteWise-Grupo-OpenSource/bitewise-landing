@@ -1,15 +1,132 @@
 ﻿<nav class="s-nav" [class.scrolled]="isScrolled">
   <div class="nav-logo">Bite<span>.</span>Wise</div>
   <ul class="nav-links">
-    <li><a style="cursor:pointer;" (click)="scrollTo('features')">Funciones</a></li>
-    <li><a href="#">Cómo funciona</a></li>
-    <li><a style="cursor:pointer;" (click)="scrollTo('pricing')">Precios</a></li>
+    <li><a (click)="scrollTo('features')">Funciones</a></li>
+    <li><a (click)="scrollTo('how')">Cómo funciona</a></li>
+    <li><a (click)="scrollTo('pricing')">Precios</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="#" class="nav-login">Ingresar</a>
+    <a class="nav-login" (click)="showLogin = true" style="cursor:pointer">Ingresar</a>
     <button class="theme-toggle" (click)="toggleTheme()" title="Cambiar tema">
-      <div class="theme-thumb">{{ isDark ? '🌙' : '☀' }}</div>
+      <div class="theme-thumb">
+        <svg *ngIf="!isDark" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" />
+          <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" />
+        </svg>
+        <svg *ngIf="isDark" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </div>
     </button>
-    <a href="#" class="nav-cta">Comenzar gratis</a>
+    <a class="nav-cta" (click)="showRegister = true" style="cursor:pointer">Comenzar gratis</a>
   </div>
 </nav>
+
+<!-- Modal Login -->
+<div class="modal-backdrop" *ngIf="showLogin" (click)="showLogin = false">
+  <div class="modal-card" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="showLogin = false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <div class="modal-logo">Bite<span>.</span>Wise</div>
+    <h2 class="modal-title">Bienvenido de vuelta</h2>
+    <p class="modal-sub">Ingresa a tu cuenta para continuar</p>
+    <div class="modal-form">
+      <div class="field">
+        <label class="field-label">Correo electrónico</label>
+        <input class="field-input" type="email" placeholder="tu@email.com" [(ngModel)]="email" />
+      </div>
+      <div class="field">
+        <label class="field-label">Contraseña</label>
+        <div class="input-wrap">
+          <input class="field-input" [type]="showPassword ? 'text' : 'password'" placeholder="••••••••"
+            [(ngModel)]="password" />
+          <button class="toggle-pw" type="button" (click)="showPassword = !showPassword">
+            <svg *ngIf="!showPassword" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <svg *ngIf="showPassword" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round">
+              <path
+                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+              <line x1="1" y1="1" x2="23" y2="23" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+      <button class="btn-primary modal-btn" (click)="onSubmit()">Ingresar</button>
+    </div>
+    <p class="modal-footer">
+      ¿No tienes cuenta?
+      <a (click)="showLogin = false; showRegister = true" style="cursor:pointer">Crear mi plan gratis</a>
+    </p>
+  </div>
+</div>
+
+<!-- Modal Register -->
+<div class="modal-backdrop" *ngIf="showRegister" (click)="showRegister = false">
+  <div class="modal-card" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="showRegister = false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <div class="modal-logo">Bite<span>.</span>Wise</div>
+    <h2 class="modal-title">Crea tu plan gratis</h2>
+    <p class="modal-sub">Empieza hoy, sin tarjeta de crédito</p>
+    <div class="modal-form">
+      <div class="field">
+        <label class="field-label">Nombre completo</label>
+        <input class="field-input" type="text" placeholder="Andrea García" [(ngModel)]="registerName" />
+      </div>
+      <div class="field">
+        <label class="field-label">Correo electrónico</label>
+        <input class="field-input" type="email" placeholder="tu@email.com" [(ngModel)]="registerEmail" />
+      </div>
+      <div class="field">
+        <label class="field-label">Contraseña</label>
+        <div class="input-wrap">
+          <input class="field-input" [type]="showRegisterPassword ? 'text' : 'password'" placeholder="••••••••"
+            [(ngModel)]="registerPassword" />
+          <button class="toggle-pw" type="button" (click)="showRegisterPassword = !showRegisterPassword">
+            <svg *ngIf="!showRegisterPassword" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <svg *ngIf="showRegisterPassword" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path
+                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+              <line x1="1" y1="1" x2="23" y2="23" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <button class="btn-primary modal-btn" (click)="onRegister()">Crear mi cuenta gratis</button>
+    </div>
+    <p class="modal-footer">
+      ¿Ya tienes cuenta?
+      <a (click)="showRegister = false; showLogin = true" style="cursor:pointer">Ingresar</a>
+    </p>
+  </div>
+</div>
