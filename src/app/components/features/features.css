@@ -90,8 +90,9 @@
 }
 
 :host-context([data-theme="dark"]) .feat-wide {
-  background: #181511;
-  border: 1px solid rgba(223, 160, 88, 0.2);
+  background: linear-gradient(135deg, rgba(223, 160, 88, 0.12) 0%, rgba(223, 160, 88, 0.02) 100%), #2b241c;
+  border: 1px solid rgba(223, 160, 88, 0.35);
+  box-shadow: 0 16px 48px rgba(223, 160, 88, 0.12);
 }
 
 :host-context([data-theme="dark"]) .feat-wide-name {
@@ -130,7 +131,7 @@
   line-height: 1.65;
 }
 
-/* â”€â”€ RESPONSIVE â”€â”€ */
+/* RESPONSIVE  */
 @media (max-width: 1024px) {
   .s-feat {
     padding: 64px 28px;
@@ -177,4 +178,17 @@
     height: 48px;
     font-size: 22px;
   }
+}
+
+.feat-card:hover .feat-icon {
+  transform: scale(1.1);
+}
+
+:host-context([data-theme="dark"]) .feat-card {
+  background: #252016;
+  border-color: #3a3020;
+}
+
+:host-context([data-theme="dark"]) .feat-card:hover {
+  box-shadow: 0 12px 40px rgba(232, 130, 74, .15);
 }
