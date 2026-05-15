@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-cta-footer',
+  selector: 'app-privacy',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './cta-footer.html',
-  styleUrls: ['./cta-footer.css']
+  templateUrl: './privacy.html',
+  styleUrl: './privacy.css'
 })
-export class CtaFooterComponent { }
+export class PrivacyComponent { }
