@@ -1,0 +1,144 @@
+.page-wrap {
+    min-height: 100vh;
+    background: var(--bg-page);
+    padding: 80px 48px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.page-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 40px;
+    transition: color .15s;
+}
+
+.page-back:hover {
+    color: var(--terra);
+}
+
+.page-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.page-eyebrow::before {
+    content: '';
+    width: 16px;
+    height: 2px;
+    background: var(--terra);
+    border-radius: 999px;
+}
+
+.page-title {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 52px);
+    letter-spacing: -2px;
+    color: var(--charcoal);
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.page-title em {
+    font-style: normal;
+    color: var(--terra);
+}
+
+.page-subtitle {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 56px;
+    max-width: 560px;
+}
+
+.page-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.blog-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-card);
+    padding: 32px 28px;
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer;
+}
+
+.blog-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(200, 107, 58, .1);
+}
+
+.blog-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--terra);
+}
+
+.blog-title {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    color: var(--charcoal);
+    margin: 12px 0 10px;
+    line-height: 1.25;
+}
+
+.blog-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 20px;
+}
+
+.blog-meta {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.blog-dot {
+    color: var(--terra);
+}
+
+@media (max-width: 768px) {
+    .page-wrap {
+        padding: 60px 24px;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-wrap {
+        padding: 40px 20px;
+    }
+}

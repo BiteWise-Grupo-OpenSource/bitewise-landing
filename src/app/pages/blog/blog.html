@@ -1,0 +1,27 @@
+<div class="page-wrap">
+    <a routerLink="/" class="page-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+        </svg>
+        Volver al inicio
+    </a>
+    <div class="page-eyebrow">Blog</div>
+    <h1 class="page-title">Aprende a comer <em>mejor</em></h1>
+    <p class="page-subtitle">Artículos sobre nutrición, hábitos y salud escritos por nuestro equipo de especialistas.
+    </p>
+    <hr class="page-divider">
+    <div class="blog-grid">
+        <article class="blog-card" *ngFor="let post of posts">
+            <span class="blog-tag">{{ post.tag }}</span>
+            <h2 class="blog-title">{{ post.title }}</h2>
+            <p class="blog-desc">{{ post.desc }}</p>
+            <div class="blog-meta">
+                <span>{{ post.date }}</span>
+                <span class="blog-dot">·</span>
+                <span>{{ post.mins }} min lectura</span>
+            </div>
+        </article>
+    </div>
+</div>
