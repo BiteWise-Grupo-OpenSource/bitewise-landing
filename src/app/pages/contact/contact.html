@@ -1,0 +1,39 @@
+<div class="page-wrap">
+    <a routerLink="/" class="page-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+        </svg>
+        Volver al inicio
+    </a>
+    <div class="page-eyebrow">Contacto</div>
+    <h1 class="page-title">Hablemos <em>juntos</em></h1>
+    <p class="page-subtitle">¿Tienes preguntas, sugerencias o necesitas ayuda? Escríbenos y te respondemos en menos de
+        24 horas.</p>
+    <hr class="page-divider">
+
+    <div *ngIf="!submitted" class="contact-form">
+        <div class="field">
+            <label class="field-label">Nombre completo</label>
+            <input class="field-input" type="text" placeholder="Andrea García" [(ngModel)]="name" />
+        </div>
+        <div class="field">
+            <label class="field-label">Correo electrónico</label>
+            <input class="field-input" type="email" placeholder="tu@email.com" [(ngModel)]="email" />
+        </div>
+        <div class="field">
+            <label class="field-label">Mensaje</label>
+            <textarea class="field-input field-textarea" placeholder="¿En qué podemos ayudarte?"
+                [(ngModel)]="message"></textarea>
+        </div>
+        <button class="btn-primary contact-btn" (click)="onSubmit()">Enviar mensaje →</button>
+    </div>
+
+    <div *ngIf="submitted" class="contact-success">
+        <div class="success-icon">✓</div>
+        <h2>¡Mensaje enviado!</h2>
+        <p>Gracias, {{ name }}. Te respondemos en menos de 24 horas a <strong>{{ email }}</strong>.</p>
+        <a routerLink="/" class="btn-primary" style="margin-top:24px; text-decoration:none">Volver al inicio</a>
+    </div>
+</div>
